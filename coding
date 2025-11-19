@@ -1,0 +1,41 @@
+
+                </div>
+                <div class="form-group">
+                    <label>연락처 *</label>
+                    <input type="tel" required placeholder="010-0000-0000">
+                </div>
+                <div class="form-group">
+                    <label>이메일</label>
+                    <input type="email" placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label>후원 금액 *</label>
+                    <select required>
+                        <option value="">선택하세요</option>
+                        <option value="10000">10,000원</option>
+                        <option value="30000">30,000원</option>
+                        <option value="50000">50,000원</option>
+                        <option value="100000">100,000원</option>
+                        <option value="custom">직접 입력</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>응원 메시지</label>
+                    <textarea placeholder="신성범 의원에게 전하고 싶은 메시지를 작성해주세요"></textarea>
+                </div>
+                <button type="submit" class="submit-button">후원 신청하기</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 자원봉사 모달 -->
+    <div id="volunteerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>자원봉사 신청</h2>
+                <span class="close" onclick="closeModal('volunteerModal')">&times;</span>
+            </div>
+            <form onsubmit="submitVolunteer(event)">
+                <div class="form-group">
+                    <label>이름 *</label>
+                    <input type="text" required placeholder="
