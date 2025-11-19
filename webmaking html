@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국민의 버미와 함께 - 신성범 의원</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* 헤더 */
+        header {
+            background: linear-gradient(135deg, #e43863 0%, #C41E3A 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(230, 30, 80, 0.3);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+        
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(135deg, #E61E50 0%, #FF4D7D 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            background: white;
+            color: #E61E50;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* 프로필 섹션 */
+        .profile {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(230, 30, 80, 0.2);
+            padding: 2rem;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-mascot {
+            width: 120px;
+            height: auto;
+            margin-top: 1rem;
+        }
+        
+        .profile-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #E61E50;
+        }
+        
+        .party-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #E61E50 0%, #FF4D7D 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #FFE5EC 0%, #FFF0F5 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #FFB3C6;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #E61E50;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        /* 섹션 공통 스타일 */
+        section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #db2855;
+        }
+        
+        /* 공약 카드 */
+        .promises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .promise-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(230, 30, 80, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #E61E50;
+        }
+        
+        .promise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(230, 30, 80, 0.25);
+        }
+        
+        .promise-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #E61E50 0%, #FF4D7D 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .promise-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #E61E50;
+        }
+        
+        .promise-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* 이벤트 섹션 */
+        .events-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .event-card {
+            background: white;
+            border-left: 5px solid #E61E50;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(230, 30, 80, 0.15);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .event-date {
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .event-day {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #E61E50;
+            line-height: 1;
+        }
+        
+        .event-month {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .event-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #E61E50;
+        }
+        
+        .event-info p {
+            color: #666;
+        }
+        
+        .event-button {
+            background: #E61E50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .event-button:hover {
+            background: #C41E3A;
+        }
+        
+        /* 후원/자원봉사 섹션 */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .support-card {
+            background: linear-gradient(135deg, #E61E50 0%, #FF4D7D 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .support-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .support-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .support-card p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .support-card button {
+            background: white;
+            color: #E61E50;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .support-card button:hover {
+            transform: scale(1.1);
+        }
+        
+        /* 푸터 */
+        footer {
+            background: #E61E50;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* 모달 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 85vh; /* 최대 높이 설정 */
+            overflow-y: auto; /* 세로 스크롤 활성화 */
+            position: relative;
+            animation: slideDown 0.3s;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #FFE5EC;
+            padding-bottom: 1rem;
+        }
+        
+        .modal-header h2 {
+            color: #E61E50;
+            margin: 0;
+        }
+        
+        .close {
+            color: #aaa;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: #E61E50;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #FFE5EC;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #E61E50;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, #eb315f 0%, #FF4D7D 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 30, 80, 0.3);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .profile {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .event-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span>국민의 힘</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="HTML_BASIC.html">홈</a></li>
+                <li><a href="MINONE.html">민원 접수</a></li>
+                <li><a href="events.html">각종 이벤트</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>국민의 버미와 함께</h1>
+            <p>버미와 함께 만들어가는 거창•산청•합천•함양 4개군</p>
+            <a href="#support" class="cta-button">참여하기</a>
+        </div>
+    </div>
+
+    <!-- 프로필 섹션 -->
+    <section id="profile" class="profile">
+        <div class="profile-image">
+            <img class="profile-image" src="여권1.jpg" alt="버미">
+            </div>
+        </div>
+        <div class="profile-content">
+            <h2>신성범 국회의원</h2>
+            <p><strong>지역을 위해 헌신하는 리더</strong></p>
+            <p>신성범 의원은 지난 수년간 지역 발전을 위해 끊임없이 노력해왔습니다. 주민과의 소통을 최우선으로 하며, 실질적인 변화를 이끌어내는 정치인입니다.</p>
+            
+            <div class="profile-stats">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">년 공직 경력</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">주민 간담회</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">입법 활동</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h3 style="color: #E61E50; margin-bottom: 1rem;">주요 경력</h3>
+                <ul style="color: #666; line-height: 2;">
+                    <li>현) 국회의원 18대, 19대, 21대)</li>
+                    <li>전) 지역구 시의원 2선</li>
+                    <li>전) 시민단체 활동가</li>
+                    <li>서울대학교 행정학과 졸업</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 공약 섹션 -->
+    <section id="promises">
+        <h2>주요 공약</h2>
+        <div class="promises-grid">
+            <div class="promise-card">
+                <div class="promise-icon">🏘️</div>
+                <h3>주거 안정</h3>
+                <p>청년 및 신혼부부를 위한 공공임대주택 확충과 주거비 지원 프로그램을 확대하겠습니다.</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">🚇</div>
+                <h3>교통 개선</h3>
+                <p>대중교통 인프라 확충과 노선 개편으로 출퇴근 시간을 30분 단축하겠습니다.</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">👶</div>
+                <h3>교육·육아 지원</h3>
+                <p>공립 어린이집 확충과 초등학교 돌봄교실 운영 시간을 연장하여 워킹맘을 지원하겠습니다.</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">💼</div>
+                <h3>일자리 창출</h3>
+                <p>지역 중소기업 지원과 청년 창업 인큐베이팅 센터 설립으로 양질의 일자리를 만들겠습니다.</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">🏥</div>
+                <h3>의료 복지</h3>
+                <p>공공 의료 시설 확충과 취약계층 의료비 지원을 통해 건강한 지역사회를 만들겠습니다.</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">🌳</div>
+                <h3>환경 보호</h3>
+                <p>친환경 에너지 전환과 녹지 공간 확대로 쾌적한 생활 환경을 조성하겠습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 이벤트 섹션 -->
+    <section id="events">
+        <h2>신성범 의원 일정</h2>
+        <div class="events-list">
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-day">05</div>
+                    <div class="event-month">12월</div>
+                </div>
+                <div class="event-info">
+                    <h3>주민과의 대화 - 1차</h3>
+                    <p>📍 장소: 시청 대강당 | ⏰ 시간: 19:00-21:00</p>
+                    <p>주민들의 목소리를 직접 듣고 소통하는 시간입니다.</p>
+                </div>
+                <button class="event-button" onclick="openModal('event')">참가 신청</button>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-day">12</div>
+                    <div class="event-month">12월</div>
+                </div>
+                <div class="event-info">
+                    <h3>청년 정책 토론회</h3>
+                    <p>📍 장소: 청년문화센터 | ⏰ 시간: 15:00-17:00</p>
+                    <p>청년들의 고민을 함께 나누고 해결책을 모색합니다.</p>
+                </div>
+                <button class="event-button" onclick="openModal('event')">참가 신청</button>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-day">20</div>
+                    <div class="event-month">12월</div>
+                </div>
+                <div class="event-info">
+                    <h3>거리 유세</h3>
+                    <p>📍 장소: 중앙역 광장 | ⏰ 시간: 18:00-20:00</p>
+                    <p>시민 여러분과 직접 만나 소통하는 거리 유세입니다.</p>
+                </div>
+                <button class="event-button" onclick="openModal('event')">위치 확인</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 참여하기 섹션 -->
+    <section id="support">
+        <h2>참여하기</h2>
+        <div class="support-grid">
+            <div class="support-card">
+                <h3>💝 후원하기</h3>
+                <p>여러분의 소중한 후원이 더 나은 지역사회를 만드는 힘이 됩니다.</p>
+                <button onclick="openModal('donation')">후원하기</button>
+            </div>
+            
+            <div class="support-card">
+                <h3>🤝 자원봉사</h3>
+                <p>선거 캠페인에 함께 참여하실 자원봉사자를 모집합니다.</p>
+                <button onclick="openModal('volunteer')">신청하기</button>
+            </div>
+            
+            <div class="support-card">
+                <h3>📢 SNS 홍보</h3>
+                <p>SNS를 통해 신성범 의원의 공약과 활동을 알려주세요.</p>
+                <button onclick="shareToSNS()">공유하기</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 후원 모달 -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>후원하기</h2>
+                <span class="close" onclick="closeModal('donationModal')">&times;</span>
+            </div>
+            <form onsubmit="submitDonation(event)">
+                <div class="form-group">
+                    <label>이름 *</label>
+                    <input type="text" required placeholder="성명">
+                </div>
+                <div class="form-group">
+                    <label>연락처 *</label>
+                    <input type="tel" required placeholder="010-0000-0000">
+                </div>
+                <div class="form-group">
+                    <label>생년월일 *</label>
+                    <input type="birthday" required placeholder="생년월일 8자리 입력">
+                </div>
+                <div class="form-group">
+                    <label>주소(영수증 받을 실 주소) *</label>
+                    <input type="address" required placeholder="주소를 입력하세요">
+                </div>
+                <div class="form-group">
+                    <label>직업</label>
+                    <input type="occupation" placeholder="직종을 입력하세요">
+                </div>
+                <div class="form-group">
+                    <label>후원 금액 *</label>
+                    <select required>
+                        <option value="">선택하세요</option>
+                        <option value="10000">10,000원</option>
+                        <option value="30000">30,000원</option>
+                        <option value="50000">50,000원</option>
+                        <option value="100000">100,000원</option>
+                        <option value="custom">직접 입력</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>응원 메시지</label>
+                    <textarea placeholder="신성범 의원에게 전하고 싶은 메시지를 작성해주세요"></textarea>
+                </div>
+                <button type="submit" class="submit-button">후원 신청하기</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 이벤트 참가 모달 -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>이벤트 참가 신청</h2>
+                <span class="close" onclick="closeModal('eventModal')">&times;</span>
+            </div>
+            <form onsubmit="submitEvent(event)">
+                <div class="form-group">
+                    <label>이름 *</label>
+                    <input type="text" required placeholder="홍길동">
+                </div>
+                <div class="form-group">
+                    <label>연락처 *</label>
+                    <input type="tel" required placeholder="010-0000-0000">
+                </div>
+                <div class="form-group">
+                    <label>이메일</label>
+                    <input type="email" placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label>참가 인원</label>
+                    <input type="number" min="1" value="1" placeholder="1">
+                </div>
+                <div class="form-group">
+                    <label>문의사항</label>
+                    <textarea placeholder="문의하실 내용이 있으시면 적어주세요"></textarea>
+                </div>
+                <button type="submit" class="submit-button">참가 신청하기</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>국민의 버미와 함께</h3>
+                <p>신성범 의원 선거사무소</p>
+                <p>더 나은 미래를 위해 함께합니다</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="YouTube">▶</a>
+                    <a href="#" title="Twitter">🐦</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>연락처</h3>
+                <p>📞 전화: 02-1234-5678</p>
+                <p>📧 이메일: contact@example.com</p>
+                <p>📍 주소: 서울특별시 OO구 OO동 123-45</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>바로가기</h3>
+                <a href="#profile">후보소개</a>
+                <a href="#promises">공약</a>
+                <a href="#events">일정</a>
+                <a href="#support">참여하기</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>뉴스레터 구독</h3>
+                <p>최신 소식을 이메일로 받아보세요</p>
+                <input type="email" placeholder="이메일 주소" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border-radius: 5px; border: none;">
+                <button onclick="subscribeNewsletter()" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; background: white; color: #E61E50; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">구독하기</button>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <p>&copy; 2025 신성범 의원 선거캠페인. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 모달 열기
+        function openModal(type) {
+            const modalMap = {
+                'donation': 'donationModal',
+                'volunteer': 'volunteerModal',
+                'event': 'eventModal'
+            };
+            const modalId = modalMap[type];
+            if (modalId) {
+                document.getElementById(modalId).style.display = 'block';
+                document.body.style.overflow = 'hidden'; // 스크롤 방지
+            }
+        }
+
+        // 모달 닫기
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; // 스크롤 복원
+        }
+
+        // 모달 외부 클릭시 닫기
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // 후원 신청 제출
+        function submitDonation(event) {
+            event.preventDefault();
+            alert('후원 신청이 접수되었습니다!\n\n담당자가 확인 후 연락드리겠습니다.\n감사합니다.');
+            closeModal('donationModal');
+            event.target.reset();
+        }
+
+        // 자원봉사 신청 제출
+        function submitVolunteer(event) {
+            event.preventDefault();
+            alert('자원봉사 신청이 접수되었습니다!\n\n담당자가 확인 후 연락드리겠습니다.\n함께해주셔서 감사합니다.');
+            closeModal('volunteerModal');
+            event.target.reset();
+        }
+
+        // 이벤트 참가 신청 제출
+        function submitEvent(event) {
+            event.preventDefault();
+            alert('이벤트 참가 신청이 완료되었습니다!\n\n일정과 장소를 다시 한번 확인해주세요.\n많은 참여 부탁드립니다!');
+            closeModal('eventModal');
+            event.target.reset();
+        }
+
+        // SNS 공유
+        function shareToSNS() {
+            const shareText = '신성범 의원과 함께 더 나은 지역사회를 만들어갑니다! #국민의버미와함께 #신성범';
+            const shareUrl = window.location.href;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: '국민의 버미와 함께',
+                    text: shareText,
+                    url: shareUrl
+                }).then(() => {
+                    alert('공유해주셔서 감사합니다!');
+                }).catch(() => {
+                    fallbackShare(shareText, shareUrl);
+                });
+            } else {
+                fallbackShare(shareText, shareUrl);
+            }
+        }
+
+        // SNS 공유 대체 방법
+        function fallbackShare(text, url) {
+            const message = `${text}\n${url}`;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = message;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('공유 링크가 클립보드에 복사되었습니다!\nSNS에 붙여넣기 해주세요.');
+        }
+
+        // 뉴스레터 구독
+        function subscribeNewsletter() {
+            const email = event.target.previousElementSibling.value;
+            if (email && email.includes('@')) {
+                alert('뉴스레터 구독이 완료되었습니다!\n최신 소식을 이메일로 보내드리겠습니다.');
+                event.target.previousElementSibling.value = '';
+            } else {
+                alert('올바른 이메일 주소를 입력해주세요.');
+            }
+        }
+
+        // 스무스 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.promise-card, .event-card, .support-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
