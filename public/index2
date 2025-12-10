@@ -1,0 +1,2906 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">  <!-- 이 줄 추가! -->
+
+    <title>국민의 버미 | 신성범 국회의원</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #e46e6c;
+            --primary-red-dark: #ee3a3a;
+            --accent-orange: #df3f23;
+            --navy: #a33434;
+            --navy-light: #db2911;
+            --sky-blue: #815823;
+            --warm-cream: #FFF8E1;
+            --warm-yellow: #FFE082;
+            --text-dark: #212121;
+            --text-light: #FAFAFA;
+            --shadow-color: rgba(26, 35, 126, 0.3);
+        }
+
+        @font-face {
+            font-family: 'BMHannaPro';
+            src: url("./fonts/BMHannaPro.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'BMJUA';
+            src: url("./fonts/BMJUA_ttf.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--warm-cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* 손글씨 스타일 타이틀 */
+        .hand-drawn {
+            font-family: 'Gaegu', cursive;
+        }
+
+        .bold-title {
+            font-family: 'Black Han Sans', sans-serif;
+        }
+
+        /* 네비게이션 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            filter: drop-shadow(2px 2px 4px rgba(112, 90, 90, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo img:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .nav-logo-text {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            text-shadow: 2px 2px 0 var(--primary-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--warm-yellow);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        .nav-links a:hover {
+            color: var(--warm-yellow);
+        }
+
+        .nav-auth {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-login {
+            background: transparent;
+            border: 2px solid var(--warm-yellow);
+            color: var(--warm-yellow);
+        }
+
+        .btn-login:hover {
+            background: var(--warm-yellow);
+            color: var(--navy);
+        }
+
+        .btn-signup {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-orange) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 57, 53, 0.5);
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-wrap: nowrap;      /* 줄바꿈 없이 가로 한 줄 */
+            justify-content: center;/* 가운데 정렬 */
+            align-items: center;
+            opacity: 0.25;          /* 사진을 은은하게 보이게 */
+            filter: grayscale(0.2);
+            z-index: 0;
+            overflow: hidden;       /* 바깥으로 나가는 부분은 잘라냄 */
+        }
+
+        .hero-bg-grid img {
+            height: 100%;    /* 히어로 높이에 맞춤 */
+            width: 40%;     /* 비율 유지 */
+            flex: 0 0 auto;  /* 줄어들지 않게 고정 */
+        }
+        
+        /* 듀오톤 오버레이 (빨강 + 오렌지) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(221, 130, 128, 0.85) 0%,    /* 빨강 */
+                rgba(247, 41, 5, 0.9) 50%,       /* 오렌지 */
+                rgba(243, 131, 129, 0.85) 100%   /* 빨강 */
+            );
+            z-index: 0;
+        }
+
+        /* 배경 패턴 (기존 느낌 유지) */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(255,224,130,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* 히어로 안의 전체 콘텐츠 정렬 */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* 텍스트 블록 애니메이션 */
+        .hero-text {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+
+        /* 상단 배지 */
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary-red);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            box-shadow: 3px 3px 0 var(--accent-orange);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50%     { transform: translateY(-5px); }
+        }
+
+        /* 메인 타이틀: 1번 이미지(버미) 스타일 적용 */
+        /* 가운데 큰 글자 스타일 */
+        .hero-main-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-pretitle {
+            font-family: 'BMJUA', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 1줄: "지역의 희망" */
+        .title-small {
+            font-family: 'BMJUA', cursive;
+            font-size: 1.6rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+
+        /* 2줄: "버 미" – 1번 이미지 느낌 */
+        .title-accent {
+            display: inline-block;
+            font-family: 'Black Han Sans', 'BMJUA', sans-serif;
+            font-size: clamp(4rem, 7vw, 8rem);
+            line-height: 1;
+            padding: 0 0.15em;
+            color: #ffffff;
+            text-shadow:
+                6px 6px 0 #f70505,          /* 빨간 실루엣 */
+                10px 10px 0 rgba(0,0,0,0.35); /* 어두운 그림자 */
+        }
+
+        .title-accent {
+            animation: popUp 0.8s cubic-bezier(0.25, 1.3, 0.5, 1) forwards;
+        }
+
+        .title-accent:nth-child(1) { animation-delay: 0.1s; }
+        .title-accent:nth-child(2) { animation-delay: 0.25s; }
+
+        @keyframes popUp {
+            0%   { transform: translateY(50px) scale(0.8); opacity: 0; }
+            70%  { transform: translateY(-6px) scale(1.08); opacity: 1; }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        /* 3줄: "와 함께" */
+        .title-for {
+            font-family: 'BMJUA', cursive;
+            font-size: 1.8rem;
+            color: var(--warm-yellow);
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* 기본 버튼 스타일 */
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            padding: 0.9rem 2rem;
+            border-radius: 30px;
+
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+
+            transition: all 0.25s ease;
+        }
+
+        /* PRIMARY — 빨강/오렌지 그라데이션 버튼 */
+        .btn-primary-hero {
+            background: linear-gradient(135deg, var(--warm-yellow), var(--accent-orange));
+            color: #fff;
+
+            box-shadow: 0 6px 18px rgba(229, 57, 53, 0.35);
+        }
+
+        .btn-primary-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(229, 57, 53, 0.45);
+        }
+
+        /* SECONDARY — 테두리 버튼 */
+        .btn-secondary-hero {
+            background: transparent;
+            border: 3px solid var(--warm-yellow);
+            color: var(--warm-yellow);
+
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary-hero:hover {
+            background: var(--warm-yellow);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-character {
+            position: relative;
+        }
+
+        .hero-character img {
+            max-height: 550px;
+            filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+
+        /* 섹션 공통 스타일 */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary-red);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* #about 섹션 */
+        .about {
+            background: rgba(243, 227, 208, 0.973);
+            padding: 5rem 2rem;
+        }
+
+        .about-card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        /* 위쪽 사진 슬라이더 영역 (1번 예시처럼 옆으로 넘기는 구조) */
+        .about-slider {
+            position: relative;
+            overflow: hidden;
+            height: 380px;            /* 필요하면 높이 조절 */
+            background: #000;
+        }
+
+        .about-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .about-slide.active {
+            opacity: 1;
+        }
+
+        .about-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;        /* 사진이 꽉 차게 */
+        }
+
+        /* 좌우 화살표 */
+        .about-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0,0,0,0.4);
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+            z-index: 5;
+        }
+
+        .about-arrow:hover {
+            background: rgba(0,0,0,0.7);
+        }
+
+        .about-prev { left: 20px; }
+        .about-next { right: 20px; }
+
+        /* 하단 점 네비게이션 */
+        .about-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 6;
+        }
+
+        .about-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .about-dot.active {
+            background: #ffffff;
+            transform: scale(1.2);
+        }
+
+        /* 아래쪽 컬러 배너 (3번 이미지 느낌) */
+        .about-banner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-orange) 100%);
+            color: #ffffff;
+        }
+
+        .about-banner-text {
+            max-width: 650px;
+        }
+
+        .about-banner-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 0.4rem;
+        }
+
+        .about-banner-title {
+            font-family: 'BMJUA', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .about-banner-desc {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* 버튼 */
+        .about-banner-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.4rem;
+            border-radius: 999px;
+            background: #ffffff;
+            color: var(--primary-red);
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+
+        .about-banner-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+            background: var(--warm-yellow);
+            color: #3c1a1a;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .about-slider {
+                height: 260px;
+            }
+
+            .about-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .about-banner-title {
+                font-size: 1.7rem;
+            }
+
+            .about-banner-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* 의정활동 섹션 - 네이버 블로그 연동 */
+        .blog-showcase {
+            background: linear-gradient(
+                135deg,
+                rgba(221, 130, 128, 0.85) 0%,    /* 빨강 */
+                rgba(247, 41, 5, 0.9) 50%,       /* 오렌지 */
+                rgba(243, 131, 129, 0.85) 100%   /* 빨강 */
+            );
+            color: #ffffff;
+            padding: 2rem 2rem 1rem;
+        }
+
+        .blog-showcase-head {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .blog-eyebrow {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.8rem;
+        }
+        
+        .blog-title {
+            font-family: 'Black Han Sans', sans-serif; 
+            font-size: clamp(1rem, 2.2rem, 2.8rem);
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .blog-subtitle {
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.8rem;
+        }
+
+        .blog-all-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.6rem;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(115deg, var(--warm-yellow), var(--accent-orange));
+            color: #edebeb;
+            font-size: 0.98rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease,
+                        background 0.2s ease, color 0.2s ease;
+        }
+
+        .blog-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+            background: #ffe082;
+            color: #3b1b1b;
+        }
+
+      /* 블로그 슬라이더 전체 래퍼 */
+        .blog-slider-shell {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        /* 양 옆 카드가 살짝 보이도록 좌우 여백 없이 overflow만 숨김 */
+        .blog-slider-viewport {
+            overflow: hidden;
+            position: relative;
+            padding-block: 0.4rem;
+        }
+
+        /* 가로 슬라이드 트랙 */
+        .blog-slider-track {
+            display: flex;
+            align-items: stretch;
+            will-change: transform;
+            transition: transform 0.6s ease;
+        }
+
+        /* 개별 카드 – 한 화면의 약 80%만 차지 (옆 카드 살짝 노출) */
+        .blog-slide-card {
+            flex: 0 0 70%;            /* 카드 너비 ≒ 80% */
+            margin: 0 12px;           /* 양쪽 작은 간격 */
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+        }
+
+        /* 카드 전체 클릭 가능 */
+        .blog-slide-card a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 이미지 영역: 16:9 비율 유지 */
+        .blog-slide-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .blog-slide-thumb img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: transform 0.6s ease;
+        }
+
+        /* 호버 시 살짝 확대 */
+        .blog-slide-card:hover .blog-slide-thumb img {
+            transform: scale(1.06);
+        }
+
+        /* 하단 그라데이션 캡션 (제목·날짜만 작게) */
+        .blog-slide-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1.4rem 2rem 1.8rem;
+            background: linear-gradient(
+                180deg,
+                rgba(0,0,0,0.0) 0%,
+                rgba(0,0,0,0.55) 45%,
+                rgba(0,0,0,0.85) 100%
+            );
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .blog-slide-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .blog-slide-date {
+            font-size: 0.8rem;
+            opacity: 0.85;
+        }
+
+        .blog-slide-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-top: 0.1rem;
+        }
+
+        /* 작은 ‘원문 보기’ 라인 (원하면 빼셔도 됨) */
+        .blog-slide-footer {
+            margin-top: 0.4rem;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            opacity: 0.9;
+        }
+
+        .blog-slide-footer i {
+            font-size: 0.8rem;
+        }
+
+        /* 하단 점 인디케이터 (애플 TV 느낌) */
+        .blog-slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .blog-slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            opacity: 0.8;
+            transition: width 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+        }
+
+        .blog-slider-dot.active {
+            width: 26px;
+            background: #ffffff;
+            opacity: 1;
+        }
+
+        /* 모바일 – 여전히 한 장씩, 카드만 살짝 작게 */
+        @media (max-width: 768px) {
+            .blog-slide-card {
+                flex: 0 0 86%;
+                margin: 0 8px;
+                border-radius: 18px;
+            }
+
+            .blog-slide-caption {
+                padding-inline: 1.2rem;
+                padding-bottom: 1.3rem;
+            }
+
+            .blog-slide-title {
+                font-size: 1rem;
+            }
+        }
+        
+        /* 지역 일정 섹션 */
+        .schedule {
+            background: var(--warm-cream);
+            padding: 2rem 2rem;
+        }
+
+        .schedule-calendar-section {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 12px 40px rgba(228, 110, 108, 0.15);
+        }
+
+        .schedule-calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid rgba(228, 110, 108, 0.1);
+        }
+
+        .schedule-calendar-header h3 {
+            font-family: 'BMJUA', sans-serif;
+            font-size: 28px;
+            color: var(--primary-red);
+        }
+
+        .schedule-month-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .schedule-month-nav button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--primary-red);
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .schedule-month-nav button:hover {
+            background: var(--accent-orange);
+            transform: scale(1.1);
+        }
+
+        .schedule-calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+        }
+
+        .schedule-day-label {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-red);
+            padding: 12px 0;
+            opacity: 0.7;
+        }
+
+        .schedule-calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: var(--warm-cream);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .schedule-calendar-day:hover {
+            background: var(--warm-yellow);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(228, 110, 108, 0.3);
+        }
+
+        .schedule-calendar-day.has-event {
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-orange));
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(228, 110, 108, 0.4);
+            position: relative;
+        }
+
+        .schedule-calendar-day.has-event::after {
+            content: '⭐';
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            font-size: 12px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: rotate(0deg) scale(1); }
+            50% { opacity: 1; transform: rotate(180deg) scale(1.2); }
+        }
+
+        .schedule-calendar-day.today {
+            border: 3px solid var(--accent-orange);
+            box-shadow: 0 0 0 4px rgba(255, 142, 83, 0.2);
+        }
+
+        .schedule-calendar-day.selected {
+            background: var(--warm-yellow) !important;
+            color: var(--navy);
+            transform: scale(1.1);
+            box-shadow: 0 8px 24px rgba(255, 211, 61, 0.5);
+        }
+
+        .schedule-events-container {
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 200px;
+        }
+
+        .schedule-events-section {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            animation: slideUpSchedule 0.5s ease-out;
+        }
+
+        .schedule-events-section.show {
+            display: flex;
+        }
+
+        @keyframes slideUpSchedule {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .schedule-event-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 8px 32px rgba(228, 110, 108, 0.15);
+            border-left: 6px solid var(--primary-red);
+            transition: all 0.3s ease;
+        }
+
+        .schedule-event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(228, 110, 108, 0.25);
+            border-left-color: var(--accent-orange);
+        }
+
+        .schedule-event-date-badge {
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-orange));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .schedule-event-title {
+            font-family: 'BMJUA', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .schedule-event-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .schedule-event-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .schedule-event-detail-item.icon {
+            width: 24px;
+            height: 24px;
+            background: var(--warm-yellow);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .schedule-event-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: var(--warm-cream);
+            border-radius: 12px;
+            border-left: 3px solid var(--warm-yellow);
+        }
+
+        .schedule-empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-dark);
+            display: none;
+        }
+
+        .schedule-empty-state.show {
+            display: block;
+        }
+
+        .schedule-empty-state .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .schedule-empty-state h3 {
+            font-family: 'BMJUA', sans-serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .schedule-loading {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+
+        .schedule-loading.show {
+            display: block;
+        }
+
+        .schedule-spinner {
+            border: 4px solid rgba(228, 110, 108, 0.2);
+            border-top: 4px solid var(--primary-red);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .schedule-calendar-section {
+                padding: 24px;
+            }
+            .schedule-calendar-grid {
+                gap: 8px;
+            }
+            .schedule-calendar-day {
+                font-size: 14px;
+                border-radius: 12px;
+            }
+            .schedule-event-card {
+                padding: 20px;
+            }
+        }
+
+        /* 일정 카드 안에서 위치 링크 스타일 */
+        .schedule-location-link {
+            color: var(--primary-red);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .schedule-location-link:hover {
+            color: var(--accent-orange);
+            transform: translateX(3px);
+        }
+
+        /* 지도 모달 공통 스타일 */
+        .map-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            backdrop-filter: blur(5px);
+        }
+
+        .map-modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .map-modal {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 900px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: mapModalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes mapModalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .map-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid #f0f0f0;
+            background: linear-gradient(135deg, var(--primary-red), var(--accent-orange));
+            color: white;
+        }
+
+        .map-modal-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-modal-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .map-modal-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .map-modal-content {
+            flex: 1;
+            position: relative;
+            background: #f5f5f5;
+        }
+
+        .map-modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-modal-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #eee;
+            text-align: center;
+            background: #fafafa;
+        }
+
+        .btn-open-map {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.9rem 2rem;
+            border-radius: 30px;
+            border: none;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-open-map:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+
+        /* 버미의 군민들 (지지자 모집) */
+        .supporters {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-orange) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .supporters::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            animation: moveBackground 20s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+
+        .supporters .section-title {
+            color: white;
+        }
+
+        .supporters .section-subtitle {
+            color: var(--warm-yellow);
+        }
+
+        .supporters-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .supporters-description {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .supporters-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 4rem;
+            display: block;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .btn-join {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: white;
+            color: var(--primary-red);
+            padding: 1.2rem 3rem;
+            border-radius: 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-join:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* 민원 게시판 미리보기 */
+        .complaints {
+            background: white;
+        }
+
+        .complaints-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .complaint-form-preview {
+            background: var(--warm-cream);
+            padding: 3rem;
+            border-radius: 25px;
+            margin-bottom: 3rem;
+        }
+
+        .form-notice {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .form-notice i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--warm-yellow);
+        }
+
+        .form-notice h3 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-notice p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .recent-complaints {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .complaint-item {
+            background: var(--warm-cream);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .complaint-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .complaint-info h4 {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+
+        .complaint-meta {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .complaint-status {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        .status-processing {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .status-complete {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        /* SNS 피드 섹션 */
+        .sns-feed {
+            background: var(--warm-cream);
+            padding: 5rem 2rem;
+        }
+
+        .sns-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .sns-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .sns-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .sns-card-header {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sns-card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .sns-card-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .sns-card-content {
+            padding: 1.5rem;
+        }
+
+        .sns-card-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* 푸터 */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand img {
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--warm-yellow);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--warm-yellow);
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .footer-contact i {
+            color: var(--warm-yellow);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* 로그인 모달 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-red);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-header img {
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .modal-header h2 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+        }
+
+        .modal-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .form-group input {
+            padding: 1rem 1.2rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 4px rgba(229,57,53,0.1);
+        }
+
+        .modal-submit {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--accent-orange) 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(229,57,53,0.4);
+        }
+
+        .modal-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #666;
+        }
+
+        .modal-footer a {
+            color: var(--primary-red);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* 모바일 메뉴 */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 반응형 */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-regions {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-description {
+                margin: 0 auto 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sns-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-auth {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .supporters-stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .sns-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .speech-bubble {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav>
+        <div class="nav-logo">
+            <img src="unnamed.jpg" alt="국민의 버미">
+            <span class="nav-logo-text">국민의 버미</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">홈</a></li>
+            <li><a href="#about">의원 소개</a></li>
+            <li><a href="#activities">의정활동</a></li>
+            <li><a href="#schedule">일정</a></li>
+            <li><a href="#supporters">버미의 군민들</a></li>
+            <li><a href="#complaints">민원 게시판</a></li>
+        </ul>
+        <div class="nav-auth">
+            <button class="btn btn-login" onclick="openModal('login')">로그인</button>
+            <button class="btn btn-signup" onclick="openModal('signup')">회원가입</button>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero" id="home">
+         <div class="hero-bg-grid">
+            <img src="photo1.jpg" alt="">
+            <img src="photo2.jpg" alt="">
+            <img src="photo3.jpg" alt="">
+
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">🌟 제22대 국회의원</span>
+                </div>
+        <div class="hero-title-group">
+            <p class="hero-pretitle">산청, 함양, 거창, 합천</p>
+            <h1 class="hero-main-title">
+                <span class="title-line-1"><span class="title-small">지역의 희망</span></span>
+                <span class="title-line-2">
+                    <span class="title-accent">버</span><span class="title-accent">미</span>
+                </span>
+                <span class="title-line-3"><span class="title-for">와 함께</span></span>
+            </h1>
+                </div>
+                <div class="hero-cta">
+                    <a href="#supporters" class="btn-hero btn-primary-hero">
+                        <i class="fas fa-heart"></i> 함께하기
+                    </a>
+                    <a href="#complaints" class="btn-hero btn-secondary-hero">
+                        <i class="fas fa-comment-dots"></i> 민원
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 의원 소개 -->
+    <section class="about" id="about">
+        <div class="about-card">
+            <!-- 위쪽: 사진 슬라이더 -->
+            <div class="about-slider">
+                <div class="about-slide active">
+                    <img src="photo1.jpg" alt="신성범 의원 활동 사진 1">
+                </div>
+                <div class="about-slide">
+                    <img src="photo2.jpg" alt="신성범 의원 활동 사진 2">
+                </div>
+                <div class="about-slide">
+                    <img src="photo3.jpg" alt="신성범 의원 활동 사진 3">
+                </div>
+
+                <!-- 좌우 화살표 -->
+                <button class="about-arrow about-prev">‹</button>
+                <button class="about-arrow about-next">›</button>
+
+                <!-- 하단 점 네비게이션 -->
+                <div class="about-dots">
+                    <button class="about-dot active" data-index="0"></button>
+                    <button class="about-dot" data-index="1"></button>
+                    <button class="about-dot" data-index="2"></button>
+                </div>
+            </div>
+
+            <!-- 아래쪽: 3번 이미지처럼 컬러 박스 + 텍스트/버튼 -->
+            <div class="about-banner">
+                <div class="about-banner-text">
+                    <p class="about-banner-label">ABOUT</p>
+                    <h2 class="about-banner-title">신성범 국회의원</h2>
+                    <p class="about-banner-desc">
+                        경남 거창·함양·산청·합천 지역을 발로 뛰며, 
+                        지키고 있는 국민의 버미 신성범 의원입니다. 
+                        사진으로 의원님의 현장 활동을 함께 보세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 의정활동 -->
+    <section class="blog-showcase" id="blog">
+        <div class="blog-showcase-head">
+            <span class="section-badge">ACTIVITIES</span>
+            <h2 class="blog-title">최근 의정활동</h2>
+            <button class="blog-all-btn"
+                    type="button"
+                    onclick="window.open('https://blog.naver.com/rnrgytkd320','_blank')"> <!--블로그 교체-->
+                의정활동 전체 보러가기
+            </button>
+        </div>
+
+        <div class="blog-slider-shell">
+            <div class="blog-slider-viewport">
+                <div class="blog-slider-track" id="blog-container">
+                    <!-- loadRSS()에서 카드가 자동으로 생성됩니다. -->
+                </div>
+            </div>
+            <!-- 애플 TV처럼 하단에 점(dot) 인디케이터 -->
+            <div class="blog-slider-dots" id="blog-dots"></div>
+        </div>
+    </section>
+
+
+    <!-- 지역 일정 섹션 -->
+    <section class="schedule" id="schedule">
+        <div class="section-header">
+            <span class="section-badge">EVENTS</span>
+            <h2 class="section-title">지역과 함께하는 일정</h2>
+            <p class="section-subtitle">여러분을 초대합니다! 편하게 오셔서 함께해요 😊</p>
+        </div>
+
+        <!-- 로딩 -->
+        <div class="schedule-loading" id="scheduleLoading">
+            <div class="schedule-spinner"></div>
+            <p style="color: var(--primary-red);">일정을 불러오는 중...</p>
+        </div>
+
+        <!-- 캘린더 -->
+        <div class="schedule-calendar-section" id="scheduleCalendarSection">
+            <div class="schedule-calendar-header">
+                <h3 id="scheduleMonthTitle">날짜 로딩중...</h3>
+                <div class="schedule-month-nav">
+                    <button onclick="scheduleChangeMonth(-1)">←</button>
+                    <button onclick="scheduleChangeMonth(1)">→</button>
+                </div>
+            </div>
+            
+            <div class="schedule-calendar-grid" id="scheduleCalendarGrid">
+                <div class="schedule-day-label">일</div>
+                <div class="schedule-day-label">월</div>
+                <div class="schedule-day-label">화</div>
+                <div class="schedule-day-label">수</div>
+                <div class="schedule-day-label">목</div>
+                <div class="schedule-day-label">금</div>
+                <div class="schedule-day-label">토</div>
+            </div>
+        </div>
+
+        <!-- 일정 표시 -->
+        <div class="schedule-events-container">
+            <div class="schedule-empty-state show" id="scheduleEmptyState">
+                <h3>날짜를 선택해주세요</h3>
+                <p>일정이 있는 날짜를 클릭하시면 상세 일정을 확인하실 수 있습니다</p>
+            </div>
+
+            <div class="schedule-empty-state" id="scheduleNoEvents">
+                <div class="icon">🌟</div>
+                <h3>이 날은 일정이 없습니다</h3>
+                <p>다른 날짜를 확인해보세요</p>
+            </div>
+
+            <div class="schedule-events-section" id="scheduleEventsSection"></div>
+        </div>
+
+        <!-- 네이버 지도 모달 -->
+    <div class="map-modal-overlay" id="mapModal" onclick="handleOverlayClick(event)">
+        <div class="map-modal">
+            <div class="map-modal-header">
+                <h3>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="mapModalTitle">위치 보기</span>
+                </h3>
+                <button class="map-modal-close" type="button" onclick="closeMapModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="map-modal-content">
+                <iframe id="mapFrame"></iframe>
+            </div>
+            <div class="map-modal-footer">
+                <button class="btn-open-map" type="button" onclick="openNaverMapInNewTab()">
+                    <i class="fas fa-external-link-alt"></i>
+                    네이버 지도에서 크게 보기
+                </button>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- 버미의 군민들 -->
+    <section class="supporters" id="supporters">
+        <div class="section-header">
+            <span class="section-badge" style="background: white; color: var(--primary-red);">JOIN US</span>
+            <h2 class="section-title">버미의 군민들</h2>
+            <p class="section-subtitle">함께 만들어가는 더 나은 내일</p>
+        </div>
+        <div class="supporters-content">
+            <p class="supporters-description">
+                국민의 버미와 함께할 여러분을 기다립니다!<br>
+                지역 발전을 위한 다양한 활동에 참여하고,<br>
+                소중한 의견을 나눠주세요.
+            </p>
+            <div class="supporters-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="memberCount">1,247</span>
+                    <span class="stat-label">함께하는 군민</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">지역 (군)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">365</span>
+                    <span class="stat-label">일 함께</span>
+                </div>
+            </div>
+            <a href="#" class="btn-join" onclick="openModal('signup'); return false;">
+                <i class="fas fa-hand-holding-heart"></i>
+                지금 함께하기
+            </a>
+        </div>
+    </section>
+
+    <!-- 민원 게시판 -->
+    <section class="complaints" id="complaints">
+        <div class="section-header">
+            <span class="section-badge">VOICE</span>
+            <h2 class="section-title">민원 게시판</h2>
+            <p class="section-subtitle">여러분의 목소리를 들려주세요</p>
+        </div>
+        <div class="complaints-container">
+            <div class="complaint-form-preview">
+                <div class="form-notice">
+                    <i class="fas fa-lock"></i>
+                    <h3>민원 작성은 로그인 후 이용 가능합니다</h3>
+                    <p>회원가입 후 지역 민원을 자유롭게 남겨주세요.<br>신성범 의원실에서 정성껏 답변 드리겠습니다.</p>
+                    <button class="btn btn-signup" onclick="openModal('login')">로그인하기</button>
+                </div>
+            </div>
+            <h3 style="font-family: 'Black Han Sans', sans-serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 1.5rem;">
+                <i class="fas fa-clipboard-list" style="color: var(--primary-red);"></i> 최근 민원
+            </h3>
+            <div class="recent-complaints">
+                <div class="complaint-item">
+                    <div class="complaint-info">
+                        <h4>거창군 버스 노선 확대 요청</h4>
+                        <span class="complaint-meta">거창군 | 김** | 2024.01.15</span>
+                    </div>
+                    <span class="complaint-status status-processing">처리중</span>
+                </div>
+                <div class="complaint-item">
+                    <div class="complaint-info">
+                        <h4>함양 농산물 판로 지원 문의</h4>
+                        <span class="complaint-meta">함양군 | 박** | 2024.01.14</span>
+                    </div>
+                    <span class="complaint-status status-complete">답변완료</span>
+                </div>
+                <div class="complaint-item">
+                    <div class="complaint-info">
+                        <h4>산청 보건소 시설 개선 건의</h4>
+                        <span class="complaint-meta">산청군 | 이** | 2024.01.12</span>
+                    </div>
+                    <span class="complaint-status status-complete">답변완료</span>
+                </div>
+                <div class="complaint-item">
+                    <div class="complaint-info">
+                        <h4>합천댐 주변 관광 개발 제안</h4>
+                        <span class="complaint-meta">합천군 | 최** | 2024.01.10</span>
+                    </div>
+                    <span class="complaint-status status-pending">접수</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SNS 피드 -->
+    <section class="sns-feed">
+        <div class="section-header">
+            <span class="section-badge">SNS</span>
+            <h2 class="section-title">소통 채널</h2>
+            <p class="section-subtitle">다양한 채널에서 만나요!</p>
+        </div>
+        <div class="sns-grid">
+            <a href="#" class="sns-card">
+                <div class="sns-card-header">
+                    <div class="sns-card-icon social-instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <span class="sns-card-name">Instagram</span>
+                </div>
+                <div class="sns-card-content">
+                    <p>일상과 의정활동을 사진으로 기록합니다. 팔로우하고 소식 받아보세요! 📸</p>
+                </div>
+            </a>
+            <a href="#" class="sns-card">
+                <div class="sns-card-header">
+                    <div class="sns-card-icon social-youtube">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <span class="sns-card-name">YouTube</span>
+                </div>
+                <div class="sns-card-content">
+                    <p>의정활동 브이로그, 현장 방문 영상을 업로드합니다. 구독과 좋아요! 🎬</p>
+                </div>
+            </a>
+            <a href="#" class="sns-card">
+                <div class="sns-card-header">
+                    <div class="sns-card-icon social-facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <span class="sns-card-name">Facebook</span>
+                </div>
+                <div class="sns-card-content">
+                    <p>지역 소식과 정책 이야기를 나눕니다. 친구 추가하고 함께해요! 💙</p>
+                </div>
+            </a>
+            <a href="#" class="sns-card">
+                <div class="sns-card-header">
+                    <div class="sns-card-icon social-blog">
+                        <i class="fas fa-blog"></i>
+                    </div>
+                    <span class="sns-card-name">네이버 블로그</span>
+                </div>
+                <div class="sns-card-content">
+                    <p>상세한 의정활동 보고서와 칼럼을 연재합니다. 이웃 추가해주세요! 💚</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="unnamed.jpg" alt="국민의 버미">
+                <p>
+                    국민의 버미 | 신성범 국회의원<br>
+                    경남 거창·함양·산청·합천 지역구
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon social-instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon social-youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon social-facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon social-blog"><i class="fas fa-blog"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>바로가기</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">의원 소개</a></li>
+                    <li><a href="#activities">의정활동</a></li>
+                    <li><a href="#schedule">일정</a></li>
+                    <li><a href="#supporters">버미의 군민들</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>민원 서비스</h4>
+                <ul class="footer-links">
+                    <li><a href="#complaints">민원 게시판</a></li>
+                    <li><a href="#">자주 묻는 질문</a></li>
+                    <li><a href="#">1:1 문의</a></li>
+                    <li><a href="#">공지사항</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-contact">
+                <h4>연락처</h4>
+                <p><i class="fas fa-phone"></i> 02-XXX-XXXX</p>
+                <p><i class="fas fa-fax"></i> 02-XXX-XXXX</p>
+                <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9dfef2f3e9fcfee9ddffe8eff0f4b3f6ef">[email&#160;protected]</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> 국회의원회관 XXX호</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 국민의 버미 | 신성범 국회의원실. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 로그인 모달 -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('login')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <img src="unnamed.jpg" alt="국민의 버미">
+                <h2>로그인</h2>
+            </div>
+            <form class="modal-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">이메일</label>
+                    <input type="email" id="loginEmail" placeholder="이메일을 입력하세요" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">비밀번호</label>
+                    <input type="password" id="loginPassword" placeholder="비밀번호를 입력하세요" required>
+                </div>
+                <button type="submit" class="modal-submit">로그인</button>
+            </form>
+            <div class="modal-footer">
+                <p>아직 회원이 아니신가요? <a href="#" onclick="switchModal('signup')">회원가입</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 회원가입 모달 -->
+    <div class="modal-overlay" id="signupModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('signup')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <img src="unnamed.jpg" alt="국민의 버미">
+                <h2>회원가입</h2>
+            </div>
+            <form class="modal-form" id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">이름</label>
+                    <input type="text" id="signupName" placeholder="이름을 입력하세요" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">이메일</label>
+                    <input type="email" id="signupEmail" placeholder="이메일을 입력하세요" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPhone">연락처</label>
+                    <input type="tel" id="signupPhone" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupRegion">거주 지역</label>
+                    <select id="signupRegion" style="padding: 1rem 1.2rem; border: 2px solid #E0E0E0; border-radius: 12px; font-size: 1rem;">
+                        <option value="">선택해주세요</option>
+                        <option value="거창">거창군</option>
+                        <option value="산청">산청군</option>
+                        <option value="합천">합천군</option>
+                        <option value="함양">함양군</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">비밀번호</label>
+                    <input type="password" id="signupPassword" placeholder="비밀번호를 입력하세요" required>
+                </div>
+                <button type="submit" class="modal-submit">회원가입</button>
+            </form>
+            <div class="modal-footer">
+                <p>이미 회원이신가요? <a href="#" onclick="switchModal('login')">로그인</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 의원소개 사진 로직-->
+     <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            const aboutSlides = document.querySelectorAll('.about-slide');
+            const aboutDots   = document.querySelectorAll('.about-dot');
+            const prevBtn     = document.querySelector('.about-prev');
+            const nextBtn     = document.querySelector('.about-next');
+
+            if (!aboutSlides.length) return;   // 슬라이더 없으면 그냥 종료
+
+            let aboutIndex = 0;
+
+            function showAboutSlide(index) {
+                aboutSlides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                aboutDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+                aboutIndex = index;
+            }
+
+            function nextAbout() {
+                const next = (aboutIndex + 1) % aboutSlides.length;
+                showAboutSlide(next);
+            }
+
+            function prevAbout() {
+                const prev = (aboutIndex - 1 + aboutSlides.length) % aboutSlides.length;
+                showAboutSlide(prev);
+            }
+
+            // 좌우 버튼
+            if (prevBtn && nextBtn) {
+                nextBtn.addEventListener('click', nextAbout);
+                prevBtn.addEventListener('click', prevAbout);
+            }
+
+            // 하단 점(dot)
+            aboutDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const i = Number(dot.dataset.index);
+                    showAboutSlide(i);
+                });
+            });
+
+            // 자동 슬라이드 (원치 않으면 아래 줄 주석 처리)
+            setInterval(nextAbout, 5000);
+        });
+    </script>
+
+    <!-- 블로그 연동 로직 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRSS();
+        });
+
+        async function loadRSS() {
+            const container = document.getElementById("blog-container");
+            
+            if (!container) {
+                console.error("blog-container를 찾을 수 없습니다.");
+                return;
+            }
+
+            // 로딩 표시
+            container.innerHTML = '<p style="color:#fff; text-align:center; padding:2rem;">블로그 글을 불러오는 중...</p>';
+
+            try {
+                // Flask 서버에서 데이터 가져오기
+                const response = await fetch('https://us-central1-gukminbermi.cloudfunctions.net/getBlogRss');
+                const data = await response.json();
+                
+                if (!data.success) {
+                    throw new Error(data.error || '데이터를 불러올 수 없습니다');
+                }
+                
+                const posts = data.posts;
+                
+                if (posts.length === 0) {
+                    container.innerHTML = '<p style="color:#fff; text-align:center;">불러올 글이 없습니다.</p>';
+                    return;
+                }
+
+                console.log(`${posts.length}개의 글을 불러왔습니다`);
+
+                // HTML 생성
+                let html = "";
+                posts.forEach((post, idx) => {
+                    // 이미지가 없으면 기본 이미지 사용
+                    const imageUrl = post.image || 
+                        `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect fill='%23e46e6c' width='800' height='450'/%3E%3Ctext fill='white' font-size='24' font-family='Arial' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E블로그 이미지%3C/text%3E%3C/svg%3E`;
+                    
+                    html += `
+                        <article class="blog-slide-card" data-index="${idx}">
+                            <a href="${post.link}" target="_blank" rel="noopener">
+                                <div class="blog-slide-thumb">
+                                    <img src="${imageUrl}" 
+                                        alt="${post.title}"
+                                        loading="lazy"
+                                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27800%27 height=%27450%27%3E%3Crect fill=%27%23e46e6c%27 width=%27800%27 height=%27450%27/%3E%3C/svg%3E'">
+                                    <div class="blog-slide-caption">
+                                        <div class="blog-slide-label">BLOG</div>
+                                        ${post.date ? `<div class="blog-slide-date">${post.date}</div>` : ""}
+                                        <div class="blog-slide-title">${post.title}</div>
+                                        <div class="blog-slide-footer">
+                                            <span>원문 보기</span>
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    `;
+                });
+
+                container.innerHTML = html;
+                console.log("HTML 렌더링 완료");
+
+            // 슬라이더 초기화
+            setTimeout(() => initBlogSlider(), 100);
+
+            } catch (err) {
+                console.error("RSS 로드 오류:", err);
+                container.innerHTML = `
+                    <div style="color:#fff; text-align:center; padding:3rem 1rem;">
+                        <i class="fas fa-exclamation-circle" style="font-size:3rem; margin-bottom:1rem; opacity:0.7;"></i>
+                        <p style="font-size:1.2rem; margin-bottom:1rem;">블로그 데이터를 불러올 수 없습니다</p>
+                        <p style="font-size:0.9rem; opacity:0.8; margin-bottom:2rem;">
+                            서버가 실행 중인지 확인해주세요.<br>
+                            오류: ${err.message}
+                        </p>
+                        <button class="blog-all-btn" 
+                                onclick="window.open('https://blog.naver.com/rnrgytkd320','_blank')"
+                                style="margin:0;">
+                            네이버 블로그 바로가기
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // 블로그 슬라이더
+        function initBlogSlider() {
+            const track = document.querySelector(".blog-slider-track");
+            if (!track) return;
+
+            let cards = Array.from(track.querySelectorAll(".blog-slide-card"));
+            if (cards.length === 0) return;
+
+            if (cards.length === 1) {
+                const dotsBox = document.getElementById("blog-dots");
+                if (dotsBox) dotsBox.innerHTML = "";
+                return;
+            }
+
+            const realCount = cards.length;
+            let current = 0;
+            let autoTimer = null;
+
+            function getSlideWidth() {
+                const firstCard = cards[0];
+                return firstCard.offsetWidth + 24;
+            }
+
+            function setPosition(noAnim = false) {
+                const slideWidth = getSlideWidth();
+                const viewportWidth = track.parentElement.offsetWidth;
+                const cardWidth = cards[0].offsetWidth;
+                
+                const initialOffset = (viewportWidth / 2) - (cardWidth / 2);
+                const translateX = initialOffset - (current * slideWidth);
+                
+                if (noAnim) {
+                    track.style.transition = "none";
+                } else {
+                    track.style.transition = "transform 0.6s ease";
+                }
+                // 현재 카드가 중앙에 오도록 계산 (양쪽 여백 고려)
+                const offset = (window.innerWidth * 0.105);  // 슬라이딩 여백 조정***
+                track.style.transform = `translateX(calc(-${current * slideWidth}px + ${offset}px))`;
+            }
+            
+            setPosition(true);
+
+            const dotsBox = document.getElementById("blog-dots");
+            if (!dotsBox) return;
+            dotsBox.innerHTML = "";
+
+            for (let i = 0; i < realCount; i++) {
+                const dot = document.createElement("button");
+                dot.className = "blog-slider-dot" + (i === 0 ? " active" : "");
+                dot.addEventListener("click", () => {
+                    current = i;
+                    setPosition();
+                    updateDots();
+                    restartAuto();
+                });
+                dotsBox.appendChild(dot);
+            }
+            const dots = dotsBox.querySelectorAll(".blog-slider-dot");
+
+            function updateDots() {
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle("active", i === current);
+                });
+            }
+
+            function goNext() {
+                current = (current + 1) % realCount;  // 0,1,2,0,1,2...
+                setPosition();
+                updateDots();
+            }
+
+            function startAuto() {
+                autoTimer = setInterval(goNext, 5000);
+            }
+            function restartAuto() {
+                if (autoTimer) clearInterval(autoTimer);
+                startAuto();
+            }
+
+            window.addEventListener("resize", () => {
+                setPosition(true);
+            });
+
+            startAuto();
+        }
+    </script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <!-- 일정 관리 스크립트 -->
+    <script>
+    // Firebase 설정
+    const scheduleFirebaseConfig = {
+        apiKey: "AIzaSyAqGcCmN-1ETaFAj34su4ho9vyDzR29THY",
+        authDomain: "gukminbermi.firebaseapp.com",
+        projectId: "gukminbermi",
+        storageBucket: "gukminbermi.firebasestorage.app",
+        messagingSenderId: "212460641222",
+        appId: "1:212460641222:web:3c7a70d296e04acdb870c7",
+        measurementId: "G-5KGDTZ5VT9"
+    };
+
+    if (!firebase.apps.length) {
+        firebase.initializeApp(scheduleFirebaseConfig);
+    }
+    const scheduleDb = firebase.firestore();
+
+    // 현재 날짜 상태
+    let scheduleCurrentYear = new Date().getFullYear();
+    let scheduleCurrentMonth = new Date().getMonth() + 1;
+    let scheduleData = {};
+
+
+    // Firebase Functions URL
+    const SCHEDULE_FUNCTIONS_URL = 'https://us-central1-gukminbermi.cloudfunctions.net';
+
+    // 페이지 로드시 초기화
+    document.addEventListener('DOMContentLoaded', () => {
+        loadScheduleMonthly();
+    });
+
+    // 월별 일정 불러오기
+    async function loadScheduleMonthly() {
+        try {
+            showScheduleLoading(true);
+            
+            const response = await fetch(
+                `${SCHEDULE_FUNCTIONS_URL}/getMonthlySchedule?year=${scheduleCurrentYear}&month=${scheduleCurrentMonth}`
+            );
+            const data = await response.json();
+            
+            if (data.success) {
+                scheduleData = data.schedules;
+                renderScheduleCalendar();
+            }
+            
+            showScheduleLoading(false);
+        } catch (error) {
+            console.error('일정 로드 실패:', error);
+            showScheduleLoading(false);
+        }
+    }
+
+    // 캘린더 렌더링
+    function renderScheduleCalendar() {
+        const grid = document.getElementById('scheduleCalendarGrid');
+        const monthTitle = document.getElementById('scheduleMonthTitle');
+        
+        monthTitle.textContent = `${scheduleCurrentYear}년 ${scheduleCurrentMonth}월 `;
+        
+        const existingDays = grid.querySelectorAll('.schedule-calendar-day');
+        existingDays.forEach(day => day.remove());
+        
+        const firstDay = new Date(scheduleCurrentYear, scheduleCurrentMonth - 1, 1);
+        const lastDay = new Date(scheduleCurrentYear, scheduleCurrentMonth, 0);
+        const daysInMonth = lastDay.getDate();
+        const startDayOfWeek = firstDay.getDay();
+        
+        for (let i = 0; i < startDayOfWeek; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.className = 'schedule-calendar-day';
+            emptyCell.style.visibility = 'hidden';
+            grid.appendChild(emptyCell);
+        }
+        
+        const today = new Date();
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayCell = document.createElement('div');
+            dayCell.className = 'schedule-calendar-day';
+            dayCell.textContent = day;
+            dayCell.onclick = () => selectScheduleDate(day, dayCell);
+            
+            if (scheduleCurrentYear === today.getFullYear() && 
+                scheduleCurrentMonth === today.getMonth() + 1 && 
+                day === today.getDate()) {
+                dayCell.classList.add('today');
+            }
+            
+            if (scheduleData[day] && scheduleData[day].length > 0) {
+                dayCell.classList.add('has-event');
+            }
+            
+            grid.appendChild(dayCell);
+        }
+    }
+
+    // 날짜 선택
+    async function selectScheduleDate(day, element) {
+        document.querySelectorAll('.schedule-calendar-day').forEach(d => d.classList.remove('selected'));
+        element.classList.add('selected');
+        
+        document.getElementById('scheduleEmptyState').classList.remove('show');
+        document.getElementById('scheduleNoEvents').classList.remove('show');
+        document.getElementById('scheduleEventsSection').classList.remove('show');
+        
+        const daySchedules = scheduleData[day];
+        
+        if (!daySchedules || daySchedules.length === 0) {
+            document.getElementById('scheduleNoEvents').classList.add('show');
+            return;
+        }
+        
+        renderScheduleEvents(day, daySchedules);
+    }
+
+    // 일정 렌더링
+    function renderScheduleEvents(day, events) {
+        const container = document.getElementById('scheduleEventsSection');
+        container.innerHTML = '';
+        
+        events.forEach(event => {
+            const card = createScheduleEventCard(day, event);
+            container.appendChild(card);
+        });
+        
+        container.classList.add('show');
+        setTimeout(() => {
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    }
+
+    // 일정 카드 생성
+    function createScheduleEventCard(day, event) {
+        const card = document.createElement('div');
+        card.className = 'schedule-event-card';
+        
+        const startTime = new Date(event.startTime);
+        const endTime = new Date(event.endTime);
+        const timeStr = `${formatScheduleTime(startTime)} - ${formatScheduleTime(endTime)}`;
+        
+        card.innerHTML = `
+            <div class="schedule-event-date-badge">
+                📌 ${scheduleCurrentMonth}월 ${day}일
+            </div>
+            <h3 class="schedule-event-title">${event.title}</h3>
+            <div class="schedule-event-details">
+                <div class="schedule-event-detail-item">
+                    <span class="icon">🕐</span>
+                    <span>${timeStr}</span>
+                </div>
+                ${event.location ? `
+                <div class="schedule-event-detail-item">
+                <span class="icon">📍</span>
+                <span class="schedule-location-link"
+                    onclick="openMapModal('${event.location.replace(/'/g, "\\'")}')">
+                  ${event.location}
+                  <i class="fas fa-map-marked-alt"></i>
+                </span>
+            </div>
+        ` : ''}
+        </div>
+        ${event.description ? `
+        <div class="schedule-event-description">${event.description}</div>
+        ` : ''}
+    `;
+        
+        return card;
+    }
+
+    // 시간 포맷팅
+    function formatScheduleTime(date) {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const period = hours < 12 ? '오전' : '오후';
+        const displayHours = hours % 12 || 12;
+        return `${period} ${displayHours}:${minutes.toString().padStart(2, '0')}`;
+    }
+
+    // 월 변경
+    async function scheduleChangeMonth(delta) {
+        scheduleCurrentMonth += delta;
+        
+        if (scheduleCurrentMonth > 12) {
+            scheduleCurrentMonth = 1;
+            scheduleCurrentYear++;
+        } else if (scheduleCurrentMonth < 1) {
+            scheduleCurrentMonth = 12;
+            scheduleCurrentYear--;
+        }
+        
+        document.getElementById('scheduleEmptyState').classList.add('show');
+        document.getElementById('scheduleEventsSection').classList.remove('show');
+        document.getElementById('scheduleNoEvents').classList.remove('show');
+        
+        await loadScheduleMonthly();
+    }
+
+    // 로딩 표시
+    function showScheduleLoading(show) {
+        document.getElementById('scheduleLoading').classList.toggle('show', show);
+        document.getElementById('scheduleCalendarSection').style.display = show ? 'none' : 'block';
+    }
+    </script>
+
+    <script>
+        let currentMapLocation = '';
+
+        // 지도 모달 열기
+        function openMapModal(location) {
+            currentMapLocation = location;
+            const modal = document.getElementById('mapModal');
+            const frame = document.getElementById('mapFrame');
+            const title = document.getElementById('mapModalTitle');
+            
+            // 네이버 지도 검색 URL
+            const mapUrl = `https://map.naver.com/v5/search/${encodeURIComponent(location)}`;
+            
+            frame.src = mapUrl;
+            title.textContent = location;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 지도 모달 닫기
+        function closeMapModal() {
+            const modal = document.getElementById('mapModal');
+            const frame = document.getElementById('mapFrame');
+            
+            modal.classList.remove('active');
+            frame.src = '';  // 닫을 때 로드 중지
+            document.body.style.overflow = 'auto';
+        }
+
+        // 모달 바깥 클릭 시 닫기
+        function handleOverlayClick(event) {
+            if (event.target.id === 'mapModal') {
+                closeMapModal();
+            }
+        }
+
+        // 새 탭에서 네이버 지도 열기
+        function openNaverMapInNewTab() {
+            if (currentMapLocation) {
+                window.open(
+                    `https://map.naver.com/v5/search/${encodeURIComponent(currentMapLocation)}`,
+                    '_blank'
+                );
+            }
+        }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMapModal();
+            }
+        });
+    </script>
+
+
+
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // 모달 제어
+        function openModal(type) {
+            document.getElementById(type + 'Modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(type) {
+            document.getElementById(type + 'Modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function switchModal(type) {
+            closeModal(type === 'login' ? 'signup' : 'login');
+            setTimeout(() => openModal(type), 300);
+        }
+
+        // 모달 바깥 클릭 시 닫기
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.about-card, .activity-card, .schedule-item, .sns-card, .complaint-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // 네비게이션 스크롤 효과
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(26, 35, 126, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.background = 'linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%)';
+                nav.style.backdropFilter = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // 숫자 카운트 애니메이션
+        function animateCount(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 30);
+        }
+
+        // 회원 수 카운트 애니메이션
+        const memberCountEl = document.getElementById('memberCount');
+        const memberObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCount(memberCountEl, 1247);
+                memberObserver.disconnect();
+            }
+        });
+        memberObserver.observe(memberCountEl);
+
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 폼 제출 (Firebase 연동 전 임시)
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Firebase 연동 후 로그인이 가능합니다!');
+        });
+
+       
